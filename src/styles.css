@@ -70,3 +70,10 @@
 .image-upload input[type=file] { padding: 9px; background: #fff; }
 .image-preview { width: 120px; height: 90px; object-fit: cover; border-radius: 10px; border: 1px solid #e2d9ce; }
 .image-upload .error { margin: 0; }
+
+.settings-button { display:flex; align-items:center; gap:8px; margin-top:34px; padding:10px 0; border:0; color:#ffbd45; background:transparent; font-size:12px; font-weight:700; text-align:left; }
+.settings-button:hover { color:#fff; }
+.color-control { display:grid; grid-template-columns:52px 1fr; gap:9px; }
+.color-control input[type=color] { width:52px; height:42px; padding:4px; cursor:pointer; }
+.settings-preview { display:flex; align-items:center; gap:10px; padding:12px; border:2px solid; border-radius:10px; color:#3a3530; background:#fff; font-size:12px; font-weight:700; }
+.settings-preview span { width:18px; height:18px; border-radius:50%; }
