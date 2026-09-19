@@ -3,3 +3,20 @@
 @media(max-width:850px){.sidebar{width:75px;flex-basis:75px;padding:24px 15px;align-items:center}.sidebar .brand>span:last-child,.side-note{display:none}.logout{margin-top:auto}.admin-main{padding:30px 22px}.table-head{display:none}.product-row{grid-template-columns:1fr auto;gap:10px;padding:14px}.product-row>.category-chip,.product-row>.status,.product-row>strong{display:none}.row-actions{grid-column:2;grid-row:1}.product-info{grid-column:1;grid-row:1}.admin-header{display:block}.admin-user{justify-content:space-between;margin-top:20px}}
 @media(max-width:520px){.admin-main{padding:24px 14px}.admin-header h1{font-size:31px}.toolbar{display:block;margin-top:30px}.search{width:100%;margin-bottom:10px}.form-grid{grid-template-columns:1fr}.modal{padding:21px}}
 .empty-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:9px}
+
+/* Layout desktop premium: painel com navegação fixa e área de trabalho ampla. */
+@media (min-width: 1100px) {
+  .admin-shell { background: #eee9df; }
+  .sidebar { width: 275px; flex-basis: 275px; padding: 34px 27px; position: sticky; top: 0; height: 100vh; }
+  .admin-main { width: min(1440px, calc(100vw - 275px)); padding: 52px clamp(42px, 5vw, 92px) 90px; }
+  .admin-header h1 { font-size: 46px; }
+  .toolbar { margin-top: 58px; padding: 0 2px; }
+  .search { width: 380px; height: 46px; }
+  .product-table { border-radius: 16px; box-shadow: 0 18px 50px rgba(57,41,25,.06); }
+  .table-head, .product-row { grid-template-columns: minmax(380px, 2.2fr) 1.25fr .75fr .6fr 100px; padding-left: 24px; padding-right: 24px; }
+  .product-row { min-height: 92px; }
+  .product-info img, .image-placeholder { width: 64px; height: 64px; flex-basis: 64px; border-radius: 11px; }
+  .product-info strong { font-size: 14px; }
+  .product-info small { max-width: 460px; font-size: 11px; }
+  .modal { width: min(700px, 100%); padding: 34px; }
+}
