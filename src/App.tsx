@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { onAuthStateChanged, signInWithEmailAndPassword, signOut, User } from "firebase/auth";
+import { browserLocalPersistence, onAuthStateChanged, setPersistence, signInWithEmailAndPassword, signOut, User } from "firebase/auth";
 import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, updateDoc, writeBatch } from "firebase/firestore";
 import { Image, LogOut, Pencil, Plus, Search, ShoppingBag, Trash2, X } from "lucide-react";
 import { auth, db } from "./firebase";
@@ -22,7 +22,7 @@ const emptyForm: FormState = { name: "", price: 0, description: "", category: "C
 
 function Login({ onLogin }: { onLogin: (user: User) => void }) {
   const [email, setEmail] = useState(""); const [password, setPassword] = useState(""); const [error, setError] = useState(""); const [loading, setLoading] = useState(false);
-  const submit = async (event: React.FormEvent) => { event.preventDefault(); setError(""); setLoading(true); try { const result = await signInWithEmailAndPassword(auth, email, password); onLogin(result.user); } catch { setError("E-mail ou senha inválidos. Ative o login por e-mail no Firebase."); } finally { setLoading(false); } };
+  const submit = async (event: React.FormEvent) => { event.preventDefault(); setError(""); setLoading(true); try { await setPersistence(auth, browserLocalPersistence); const result = await signInWithEmailAndPassword(auth, email, password); onLogin(result.user); } catch { setError("E-mail ou senha inválidos. Ative o login por e-mail no Firebase."); } finally { setLoading(false); } };
   return <main className="login-page"><div className="login-card"><div className="brand-mark"><ShoppingBag size={22} /></div><p className="kicker">PAINEL DE CONTROLE</p><h1>Lanchão Massa</h1><p className="muted">Entre para gerenciar produtos, preços e fotos do cardápio.</p><form onSubmit={submit}><label>E-mail<input type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="admin@lanchao.com" /></label><label>Senha<input type="password" required value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" /></label>{error && <p className="error">{error}</p>}<button className="primary" disabled={loading}>{loading ? "Entrando..." : "Entrar no painel"}</button></form></div></main>;
 }
 
