@@ -65,3 +65,8 @@
   .product-info strong { font-size: 11px; }
   .product-info small { font-size: 9px; }
 }
+
+.image-upload { display: grid; gap: 12px; padding: 14px; border: 1px solid #e2d9ce; border-radius: 12px; background: #f8f4ed; }
+.image-upload input[type=file] { padding: 9px; background: #fff; }
+.image-preview { width: 120px; height: 90px; object-fit: cover; border-radius: 10px; border: 1px solid #e2d9ce; }
+.image-upload .error { margin: 0; }
