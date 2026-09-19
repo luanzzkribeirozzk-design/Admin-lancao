@@ -20,3 +20,29 @@
   .product-info small { max-width: 460px; font-size: 11px; }
   .modal { width: min(700px, 100%); padding: 34px; }
 }
+
+/* Correção mobile: ações abaixo do conteúdo, sem invadir nome ou descrição. */
+@media (max-width: 850px) {
+  .admin-shell { min-width: 0; }
+  .admin-main { min-width: 0; overflow: hidden; }
+  .product-table { width: 100%; }
+  .product-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 11px; padding: 16px; }
+  .product-info { grid-column: 1; grid-row: 1; width: 100%; min-width: 0; align-items: flex-start; }
+  .product-info > div { min-width: 0; flex: 1; }
+  .product-info strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .product-info small { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .row-actions { grid-column: 1; grid-row: 2; justify-content: flex-end; width: 100%; padding-top: 2px; }
+  .row-actions .icon { width: 40px; height: 36px; }
+  .admin-header { gap: 18px; }
+  .admin-user { gap: 12px; flex-wrap: wrap; }
+  .admin-user .primary { min-height: 45px; }
+}
+@media (max-width: 520px) {
+  .sidebar { width: 64px; flex-basis: 64px; padding-left: 10px; padding-right: 10px; }
+  .admin-main { padding: 24px 12px 50px; }
+  .admin-header h1 { font-size: 30px; line-height: 1.02; }
+  .admin-header .muted { max-width: 300px; }
+  .admin-user { display: grid; grid-template-columns: 1fr auto; align-items: center; }
+  .admin-user .primary { grid-column: 2; grid-row: 1 / span 2; }
+  .product-row { padding: 15px 13px; }
+}
