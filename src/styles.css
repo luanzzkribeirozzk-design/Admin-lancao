@@ -77,3 +77,24 @@
 .color-control input[type=color] { width:52px; height:42px; padding:4px; cursor:pointer; }
 .settings-preview { display:flex; align-items:center; gap:10px; padding:12px; border:2px solid; border-radius:10px; color:#3a3530; background:#fff; font-size:12px; font-weight:700; }
 .settings-preview span { width:18px; height:18px; border-radius:50%; }
+
+/* Organização final do painel: navegação, ações e conteúdo sem apertos. */
+.settings-button { width: 100%; justify-content: flex-start; }
+.admin-user .primary { white-space: nowrap; }
+@media (max-width: 850px) {
+  .sidebar { justify-content: flex-start; gap: 4px; }
+  .sidebar .brand { flex: 0 0 auto; }
+  .settings-button { width: 42px; height: 42px; justify-content: center; padding: 0; margin-top: 22px; font-size: 0; border-radius: 10px; background: #ffffff0b; }
+  .settings-button svg { width: 19px; height: 19px; }
+  .logout { width: 42px; justify-content: center; padding: 11px 0; font-size: 0; }
+  .admin-main { padding-top: 28px; }
+  .admin-header { padding-bottom: 4px; }
+  .toolbar { gap: 12px; }
+}
+@media (max-width: 520px) {
+  .admin-header h1 { max-width: 245px; }
+  .admin-user { width: 100%; min-width: 0; }
+  .admin-user > :first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .toolbar > span { display: block; padding: 2px 2px 0; }
+  .product-table { align-items: stretch; }
+}
